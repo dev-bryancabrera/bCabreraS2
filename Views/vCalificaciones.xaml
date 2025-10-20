@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bCabreraS2.Views.vCalificaciones"
+             Title="vCalificaciones">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20">
+
+            <Label 
+            Text="Sistema de Calificaciones UISRAEL!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+            <!--IMAGENES-->
+            <Image Source="images.png"
+                MaximumWidthRequest="400" />
+
+            <Grid RowSpacing="10">
+                <!--FILAS-->
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- BLOQUE PARCIAL 1 -->
+                <Label Text="Parcial 1"
+                   FontSize="16"
+                   Grid.Row="0"
+                   FontAttributes="Bold"
+                   Grid.Column="0"/>
+
+                <Label Text="Estudiante"
+                   FontSize="16"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+
+                <Picker x:Name="pkEstudiante"
+                    Grid.Row="1"
+                    Grid.Column="1" >
+
+                    <Picker.Items>
+                        <x:String>Mario Perez</x:String>
+                        <x:String>Juan Flores</x:String>
+                        <x:String>Florindo Ramirez</x:String>
+                        <x:String>Magdalena Vaca</x:String>
+                        <x:String>Pedro Loja</x:String>
+                        <x:String>Octavio Cordero</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Nota Seguimiento"
+                    FontSize="16"
+                    Grid.Row="2"
+                    Grid.Column="0"/>
+
+                <Entry x:Name="txtNotaSeguimiento"
+                   Placeholder="Nota Seguimiento"
+                   Grid.Row="2"
+                   Grid.Column="1" />
+
+                <Label Text="Examen P1"
+                   FontSize="16"
+                   Grid.Row="3"
+                   Grid.Column="0" />
+
+                <Entry x:Name="txtExamenP1"
+                   Placeholder="Examen Parcial 1"
+                   Grid.Row="3"
+                   Grid.Column="1" />
+
+                <Label Text="Nota Parcial 1"
+                   FontSize="16"
+                   Grid.Row="4"
+                   Grid.Column="0" />
+
+                <Entry x:Name="txtNotaParcial1"
+                   Placeholder="Nota Parcial 1"
+                   Grid.Row="4"
+                   Grid.Column="1" />
+
+                <!-- BLOQUE PARCIAL 2 -->
+                <Label Text="Parcial 2"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   Grid.Row="5"
+                   Grid.Column="0" />
+
+                <Label Text="Estudiante"
+                   FontSize="16"
+                   Grid.Row="6"
+                   Grid.Column="0" />
+
+                <Picker x:Name="pkEstudianteP2"
+                    Grid.Row="6"
+                    Grid.Column="1">
+                    <Picker.Items>
+                        <x:String>Mario Perez</x:String>
+                        <x:String>Juan Flores</x:String>
+                        <x:String>Florindo Ramirez</x:String>
+                        <x:String>Magdalena Vaca</x:String>
+                        <x:String>Pedro Loja</x:String>
+                        <x:String>Octavio Cordero</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Nota Seguimiento"
+                   FontSize="16"
+                   Grid.Row="7"
+                   Grid.Column="0" />
+
+                <Entry x:Name="txtNotaSeguimientoP2"
+                   Placeholder="Nota Seguimiento"
+                   Keyboard="Numeric"
+                   Grid.Row="7"
+                   Grid.Column="1" />
+
+                <Label Text="Examen P2"
+                   FontSize="16"
+                   Grid.Row="8"
+                   Grid.Column="0" />
+
+                <Entry x:Name="txtExamenP2"
+                   Placeholder="Examen Parcial 2"
+                   Keyboard="Numeric"
+                   Grid.Row="8"
+                   Grid.Column="1" />
+
+                <Label Text="Nota Parcial 2"
+                   FontSize="16"
+                   Grid.Row="9"
+                   Grid.Column="0" />
+
+                <Entry x:Name="txtNotaParcial2"
+                   Placeholder="Nota Parcial 2"
+                   IsReadOnly="True"
+                   Grid.Row="9"
+                   Grid.Column="1" />
+
+                <Label Text="Nota Final"
+                   FontSize="16"
+                   Grid.Row="10"
+                   Grid.Column="0" />
+    
+                <Entry x:Name="txtNotaFinal"
+                   Placeholder="Nota Final"
+                   IsReadOnly="True"
+                   Grid.Row="10"
+                   Grid.Column="1" />
+
+                <Label Text="Fecha"
+                   FontSize="16"
+                   Grid.Row="11"
+                   Grid.Column="0" />
+
+                <DatePicker x:Name="dtpFecha"
+                    Grid.Row="11"
+                    Grid.Column="1"
+                    Format="dd/mm/yyyy" />
+
+                <Label Text="Estado"
+                   FontSize="16"
+                   Grid.Row="12"
+                   Grid.Column="0" />
+
+                <Picker x:Name="pkEstado"
+                    Grid.Row="12"
+                    Grid.Column="1">
+                    <Picker.Items>
+                        <x:String>Aprobado</x:String>
+                        <x:String>Reprobado</x:String>
+                    </Picker.Items>
+                </Picker>
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>
