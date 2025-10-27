@@ -11,12 +11,14 @@
             Spacing="20">
 
             <Label 
-            Text="Sistema de Calificaciones UISRAEL!"
+            Text="Sistema de Calificaciones UISRAEL"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontSize="26"
+            FontAttributes="Bold" />
 
             <!--IMAGENES-->
-            <Image Source="images.png"
+            <Image Source="banner_sige.png"
                 MaximumWidthRequest="400" />
 
             <Grid RowSpacing="10">
@@ -47,14 +49,15 @@
                    FontSize="16"
                    Grid.Row="0"
                    FontAttributes="Bold"
-                   Grid.Column="0"/>
+                   Grid.Column="0"
+                   Padding="15"/>
 
                 <Label Text="Estudiante"
                    FontSize="16"
                    Grid.Row="1"
                    Grid.Column="0"/>
 
-                <Picker x:Name="pkEstudiante"
+                <Picker x:Name="pkEstudianteP1"
                     Grid.Row="1"
                     Grid.Column="1" >
 
@@ -76,9 +79,11 @@
                 <Entry x:Name="txtNotaSeguimiento"
                    Placeholder="Nota Seguimiento"
                    Grid.Row="2"
-                   Grid.Column="1" />
+                   Grid.Column="1"
+                   Keyboard="Numeric"
+                   TextChanged="txtNotasFormato_TextChanged" />
 
-                <Label Text="Examen P1"
+                <Label Text="Examen Parcial 1"
                    FontSize="16"
                    Grid.Row="3"
                    Grid.Column="0" />
@@ -86,42 +91,28 @@
                 <Entry x:Name="txtExamenP1"
                    Placeholder="Examen Parcial 1"
                    Grid.Row="3"
-                   Grid.Column="1" />
+                   Grid.Column="1" 
+                   Keyboard="Numeric"
+                   TextChanged="txtNotasFormato_TextChanged" />
 
                 <Label Text="Nota Parcial 1"
                    FontSize="16"
                    Grid.Row="4"
                    Grid.Column="0" />
 
-                <Entry x:Name="txtNotaParcial1"
-                   Placeholder="Nota Parcial 1"
+                <Label x:Name="lblNotaP1"
+                   FontSize="18"
                    Grid.Row="4"
-                   Grid.Column="1" />
+                   Grid.Column="1"
+                   FontAttributes="Bold" />
 
                 <!-- BLOQUE PARCIAL 2 -->
                 <Label Text="Parcial 2"
                    FontSize="16"
                    FontAttributes="Bold"
-                   Grid.Row="5"
-                   Grid.Column="0" />
-
-                <Label Text="Estudiante"
-                   FontSize="16"
                    Grid.Row="6"
-                   Grid.Column="0" />
-
-                <Picker x:Name="pkEstudianteP2"
-                    Grid.Row="6"
-                    Grid.Column="1">
-                    <Picker.Items>
-                        <x:String>Mario Perez</x:String>
-                        <x:String>Juan Flores</x:String>
-                        <x:String>Florindo Ramirez</x:String>
-                        <x:String>Magdalena Vaca</x:String>
-                        <x:String>Pedro Loja</x:String>
-                        <x:String>Octavio Cordero</x:String>
-                    </Picker.Items>
-                </Picker>
+                   Grid.Column="0"
+                   Padding="15" />
 
                 <Label Text="Nota Seguimiento"
                    FontSize="16"
@@ -132,9 +123,10 @@
                    Placeholder="Nota Seguimiento"
                    Keyboard="Numeric"
                    Grid.Row="7"
-                   Grid.Column="1" />
+                   Grid.Column="1"
+                   TextChanged="txtNotasFormato_TextChanged" />
 
-                <Label Text="Examen P2"
+                <Label Text="Examen Parcial 2"
                    FontSize="16"
                    Grid.Row="8"
                    Grid.Column="0" />
@@ -143,29 +135,32 @@
                    Placeholder="Examen Parcial 2"
                    Keyboard="Numeric"
                    Grid.Row="8"
-                   Grid.Column="1" />
+                   Grid.Column="1"
+                   TextChanged="txtNotasFormato_TextChanged" />
 
                 <Label Text="Nota Parcial 2"
                    FontSize="16"
                    Grid.Row="9"
                    Grid.Column="0" />
 
-                <Entry x:Name="txtNotaParcial2"
-                   Placeholder="Nota Parcial 2"
-                   IsReadOnly="True"
-                   Grid.Row="9"
-                   Grid.Column="1" />
+                <Label x:Name="lblNotaP2"
+                    FontSize="18"
+                    Grid.Row="9"
+                    Grid.Column="1"
+                    FontAttributes="Bold" />
 
                 <Label Text="Nota Final"
                    FontSize="16"
                    Grid.Row="10"
-                   Grid.Column="0" />
-    
-                <Entry x:Name="txtNotaFinal"
-                   Placeholder="Nota Final"
-                   IsReadOnly="True"
+                   Grid.Column="0"
+                   Padding="0,50,0,0" />
+
+                <Label x:Name="lblNotaFinal"
+                   FontSize="18"
+                   FontAttributes="Bold"
                    Grid.Row="10"
-                   Grid.Column="1" />
+                   Grid.Column="1"
+                   Padding="0,50,0,0" />
 
                 <Label Text="Fecha"
                    FontSize="16"
@@ -177,21 +172,15 @@
                     Grid.Column="1"
                     Format="dd/mm/yyyy" />
 
-                <Label Text="Estado"
-                   FontSize="16"
-                   Grid.Row="12"
-                   Grid.Column="0" />
-
-                <Picker x:Name="pkEstado"
-                    Grid.Row="12"
-                    Grid.Column="1">
-                    <Picker.Items>
-                        <x:String>Aprobado</x:String>
-                        <x:String>Reprobado</x:String>
-                    </Picker.Items>
-                </Picker>
-
             </Grid>
+
+            <Label x:Name="lblError"
+               TextColor="Red"
+               FontSize="16" />
+
+            <Button x:Name="btnCalcularNotas"
+                Text="Mostrar"
+                Clicked="btnCalcularNotas_Clicked" />
 
         </VerticalStackLayout>
 
