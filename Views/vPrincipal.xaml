@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bCabreraS2.Views.vPrincipal"
+             Title="vPrincipal">
+
+    <ContentPage.Resources>
+        <!-- Estilo para el Label con el Titulo General de la Vista -->
+        <Style x:Key="estiloTitulo" TargetType="Label">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="#4CAF50"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,20,0,10"/>
+        </Style>
+
+        <!-- Estilo para etiqueta Label con nombre del Usuario -->
+        <Style x:Key="estiloTexto" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+
+        <!-- Estilo para etiqueta Label de Password -->
+        <Style x:Key="estiloEtiqueta" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="#4CAF50"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,8"/>
+        </Style>
+
+        <!-- Estilo para el botón -->
+        <Style x:Key="estiloBoton" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="#4CAF50"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="Margin" Value="40,20,40,0"/>
+            <Setter Property="Shadow" Value="True"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <!-- Vista Principal -->
+    <VerticalStackLayout 
+        VerticalOptions="Center"
+        Spacing="10"
+        Padding="20">
+
+        <!-- Título -->
+        <Label 
+            Text="🎓 Bienvenido"
+            Style="{StaticResource estiloTitulo}" />
+
+        <!-- Nombre de usuario -->
+        <Label 
+            x:Name="lblUsuario"
+            Text="Usuario: Carlos"
+            Style="{StaticResource estiloTexto}" />
+
+        <!-- Contraseña -->
+        <Label 
+            x:Name="lblPassword"
+            Text="Contraseña: ********"
+            Style="{StaticResource estiloEtiqueta}" />
+
+        <!-- Boton para ir a la vista de calificaciones -->
+        <Button x:Name="btnCalificaciones"
+            Text="Ver Calificaciones"
+            Style="{StaticResource estiloBoton}"
+            Clicked="btnCalificaciones_Clicked" />
+        
+    </VerticalStackLayout>
+
+</ContentPage>

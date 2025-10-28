@@ -3,10 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="bCabreraS2.Views.vLogin"
              Title="vLogin">
-    <VerticalStackLayout>
+
+    <ContentPage.Resources>
+        <!-- Estilo general para etiquetas Label -->
+        <Style x:Key="estiloLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <!-- Estilo para las Entradas de texto -->
+        <Style x:Key="estiloEntry" TargetType="Entry">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="PlaceholderColor" Value="#AAAAAA"/>
+            <Setter Property="BackgroundColor" Value="#1E1E1E"/>
+            <Setter Property="Margin" Value="20,10"/>
+            <Setter Property="HeightRequest" Value="45"/>
+        </Style>
+
+        <!-- Estilo para el botón -->
+        <Style x:Key="estiloBoton" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="#4CAF50"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Margin" Value="20,20"/>
+            <Setter Property="HeightRequest" Value="50"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <!-- Vista Login -->
+    <VerticalStackLayout
+        VerticalOptions="Center"
+        Spacing="15"
+        Padding="20">
+
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Text="🔐 Iniciar Sesión"
+            FontSize="28"
+            FontAttributes="Bold"
+            TextColor="#4CAF50"
+            HorizontalOptions="Center"/>
+
+        <Label 
+            Style="{StaticResource estiloLabel}"
+            Text="Bienvenido al sistema"
+            FontSize="16"
+            TextColor="#CCCCCC"/>
+
+        <Entry 
+            x:Name="txtUsuario"
+            Style="{StaticResource estiloEntry}"
+            Placeholder="Usuario" />
+
+        <Entry 
+            x:Name="txtPassword"
+            Style="{StaticResource estiloEntry}"
+            Placeholder="Contraseña"
+            IsPassword="True" />
+
+        <Button 
+            x:Name="btnLogin"
+            Style="{StaticResource estiloBoton}"
+            Text="Iniciar Sesión"
+            Clicked="btnLogin_Clicked"/>
+
     </VerticalStackLayout>
 </ContentPage>

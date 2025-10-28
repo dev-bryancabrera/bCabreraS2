@@ -4,63 +4,115 @@
              x:Class="bCabreraS2.Views.vCalificaciones"
              Title="vCalificaciones">
 
-    <ScrollView>
+    <!-- Estilos -->
+    <ContentPage.Resources>
+        <!-- Título Vista Calificaciones -->
+        <Style x:Key="estiloTitulo" TargetType="Label">
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="#1E90FF"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,20,0,10"/>
+        </Style>
 
-        <VerticalStackLayout
-            Padding="20"
-            Spacing="20">
+        <!-- Label de datos a ingresar -->
+        <Style x:Key="estiloLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+
+        <!-- Campo de texto para ingresar los valores -->
+        <Style x:Key="estiloEntry" TargetType="Entry">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="PlaceholderColor" Value="#A9CCE3"/>
+            <Setter Property="BackgroundColor" Value="#1B263B"/>
+            <Setter Property="Margin" Value="5,3"/>
+            <Setter Property="HeightRequest" Value="40"/>
+        </Style>
+
+        <!-- Botón para calcular notas -->
+        <Style x:Key="estiloBoton" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="#1E90FF"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="Margin" Value="20,20,20,40"/>
+        </Style>
+
+        <!-- Selector de estudiante -->
+        <Style x:Key="estiloPicker" TargetType="Picker">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="BackgroundColor" Value="#1B263B"/>
+            <Setter Property="Margin" Value="5,3"/>
+            <Setter Property="HeightRequest" Value="40"/>
+        </Style>
+
+        <!-- Label en donde muestra las notas finales -->
+        <Style x:Key="estiloResultado" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="#00BFFF"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
 
             <Label 
-            Text="Sistema de Calificaciones UISRAEL"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            FontSize="26"
-            FontAttributes="Bold" />
+                Text="Sistema de Calificaciones UISRAEL"
+                Style="{StaticResource estiloTitulo}" />
 
-            <!--IMAGENES-->
+            <!-- Imagen del banner -->
             <Image Source="banner_sige.png"
-                MaximumWidthRequest="400" />
+                   MaximumWidthRequest="400"
+                   HorizontalOptions="Center" />
 
-            <Grid RowSpacing="10">
-                <!--FILAS-->
+            <Grid RowSpacing="10" ColumnSpacing="10">
+
+                <!-- Filas -->
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
+                <!-- Columnas -->
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- BLOQUE PARCIAL 1 -->
                 <Label Text="Parcial 1"
-                   FontSize="16"
-                   Grid.Row="0"
-                   FontAttributes="Bold"
-                   Grid.Column="0"
-                   Padding="15"/>
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="#1E90FF"
+                       Margin="0,10" />
 
                 <Label Text="Estudiante"
-                   FontSize="16"
-                   Grid.Row="1"
-                   Grid.Column="0"/>
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="1" Grid.Column="0"/>
 
                 <Picker x:Name="pkEstudianteP1"
-                    Grid.Row="1"
-                    Grid.Column="1" >
-
+                        Style="{StaticResource estiloPicker}"
+                        Grid.Row="1" Grid.Column="1">
                     <Picker.Items>
                         <x:String>Mario Perez</x:String>
                         <x:String>Juan Flores</x:String>
@@ -72,117 +124,110 @@
                 </Picker>
 
                 <Label Text="Nota Seguimiento"
-                    FontSize="16"
-                    Grid.Row="2"
-                    Grid.Column="0"/>
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="2" Grid.Column="0"/>
 
                 <Entry x:Name="txtNotaSeguimiento"
-                   Placeholder="Nota Seguimiento"
-                   Grid.Row="2"
-                   Grid.Column="1"
-                   Keyboard="Numeric"
-                   TextChanged="txtNotasFormato_TextChanged" />
+                       Style="{StaticResource estiloEntry}"
+                       Placeholder="Nota Seguimiento"
+                       Keyboard="Numeric"
+                       Grid.Row="2" Grid.Column="1"
+                       TextChanged="txtNotasFormato_TextChanged" />
 
                 <Label Text="Examen Parcial 1"
-                   FontSize="16"
-                   Grid.Row="3"
-                   Grid.Column="0" />
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="3" Grid.Column="0"/>
 
                 <Entry x:Name="txtExamenP1"
-                   Placeholder="Examen Parcial 1"
-                   Grid.Row="3"
-                   Grid.Column="1" 
-                   Keyboard="Numeric"
-                   TextChanged="txtNotasFormato_TextChanged" />
+                       Style="{StaticResource estiloEntry}"
+                       Placeholder="Examen Parcial 1"
+                       Keyboard="Numeric"
+                       Grid.Row="3" Grid.Column="1"
+                       TextChanged="txtNotasFormato_TextChanged" />
 
                 <Label Text="Nota Parcial 1"
-                   FontSize="16"
-                   Grid.Row="4"
-                   Grid.Column="0" />
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="4" Grid.Column="0"/>
 
                 <Label x:Name="lblNotaP1"
-                   FontSize="18"
-                   Grid.Row="4"
-                   Grid.Column="1"
-                   FontAttributes="Bold" />
+                       Style="{StaticResource estiloResultado}"
+                       Grid.Row="4" Grid.Column="1" />
 
                 <!-- BLOQUE PARCIAL 2 -->
                 <Label Text="Parcial 2"
-                   FontSize="16"
-                   FontAttributes="Bold"
-                   Grid.Row="6"
-                   Grid.Column="0"
-                   Padding="15" />
+                       Grid.Row="6"
+                       Grid.ColumnSpan="2"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="#1E90FF"
+                       Margin="0,10"/>
 
                 <Label Text="Nota Seguimiento"
-                   FontSize="16"
-                   Grid.Row="7"
-                   Grid.Column="0" />
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="7" Grid.Column="0"/>
 
                 <Entry x:Name="txtNotaSeguimientoP2"
-                   Placeholder="Nota Seguimiento"
-                   Keyboard="Numeric"
-                   Grid.Row="7"
-                   Grid.Column="1"
-                   TextChanged="txtNotasFormato_TextChanged" />
+                       Style="{StaticResource estiloEntry}"
+                       Placeholder="Nota Seguimiento"
+                       Keyboard="Numeric"
+                       Grid.Row="7" Grid.Column="1"
+                       TextChanged="txtNotasFormato_TextChanged" />
 
                 <Label Text="Examen Parcial 2"
-                   FontSize="16"
-                   Grid.Row="8"
-                   Grid.Column="0" />
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="8" Grid.Column="0"/>
 
                 <Entry x:Name="txtExamenP2"
-                   Placeholder="Examen Parcial 2"
-                   Keyboard="Numeric"
-                   Grid.Row="8"
-                   Grid.Column="1"
-                   TextChanged="txtNotasFormato_TextChanged" />
+                       Style="{StaticResource estiloEntry}"
+                       Placeholder="Examen Parcial 2"
+                       Keyboard="Numeric"
+                       Grid.Row="8" Grid.Column="1"
+                       TextChanged="txtNotasFormato_TextChanged" />
 
                 <Label Text="Nota Parcial 2"
-                   FontSize="16"
-                   Grid.Row="9"
-                   Grid.Column="0" />
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="9" Grid.Column="0"/>
 
                 <Label x:Name="lblNotaP2"
-                    FontSize="18"
-                    Grid.Row="9"
-                    Grid.Column="1"
-                    FontAttributes="Bold" />
+                       Style="{StaticResource estiloResultado}"
+                       Grid.Row="9" Grid.Column="1" />
 
+                <!-- Nota final -->
                 <Label Text="Nota Final"
-                   FontSize="16"
-                   Grid.Row="10"
-                   Grid.Column="0"
-                   Padding="0,50,0,0" />
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="10" Grid.Column="0"
+                       Margin="0,20,0,0"/>
 
                 <Label x:Name="lblNotaFinal"
-                   FontSize="18"
-                   FontAttributes="Bold"
-                   Grid.Row="10"
-                   Grid.Column="1"
-                   Padding="0,50,0,0" />
+                       Style="{StaticResource estiloResultado}"
+                       Grid.Row="10" Grid.Column="1"
+                       Margin="0,20,0,0"/>
 
+                <!-- Fecha -->
                 <Label Text="Fecha"
-                   FontSize="16"
-                   Grid.Row="11"
-                   Grid.Column="0" />
+                       Style="{StaticResource estiloLabel}"
+                       Grid.Row="11" Grid.Column="0"/>
 
                 <DatePicker x:Name="dtpFecha"
-                    Grid.Row="11"
-                    Grid.Column="1"
-                    Format="dd/mm/yyyy" />
-
+                            Grid.Row="11"
+                            Grid.Column="1"
+                            Format="dd/MM/yyyy"
+                            TextColor="White"
+                            BackgroundColor="#1B263B" />
             </Grid>
 
+            <!-- Mensaje de error -->
             <Label x:Name="lblError"
-               TextColor="Red"
-               FontSize="16" />
+                   TextColor="#FF4C4C"
+                   FontSize="16"
+                   HorizontalOptions="Center"/>
 
+            <!-- Botón Calcular Notas -->
             <Button x:Name="btnCalcularNotas"
-                Text="Mostrar"
-                Clicked="btnCalcularNotas_Clicked" />
+                    Text="Mostrar"
+                    Style="{StaticResource estiloBoton}"
+                    Clicked="btnCalcularNotas_Clicked" />
 
         </VerticalStackLayout>
-
     </ScrollView>
 </ContentPage>

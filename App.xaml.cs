@@ -11,7 +11,7 @@ namespace bCabreraS2
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new vCalificaciones());
+            return new Window(new NavigationPage(new vLogin()));
         }
     }
 }
